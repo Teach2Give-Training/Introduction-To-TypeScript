@@ -1,3 +1,5 @@
+import axios from "axios"
+
 export const asyncProgramming = () => {
     console.log("------Async Programming-------")
 
@@ -66,15 +68,15 @@ export const asyncProgramming = () => {
     const fetchAPI = async(id:number):Promise<void> =>{
         try {
             const url = `https://jsonplaceholder.typicode.com/users/${id}`
-            const response = await fetch(url)
+            const response = await axios.get(url)
 
-            const data = await response.json()
+            const data = response.data
             console.log(data)
         } catch (error) {
             console.error(error)
         }
     }
 
-    fetchAPI(1)
+    fetchAPI(4)
 
 }
