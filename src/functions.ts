@@ -1,9 +1,9 @@
 export const functions =()=>{
     
     // function functionName(arg1:type,arg2:type):type{
-    //     //function body
+        //function body
 
-    //     return value;
+        // return value;
     // }
 
     // function sayHello():void{

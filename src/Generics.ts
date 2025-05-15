@@ -1,15 +1,17 @@
 export const Generics = () => {
     console.log("-----Generics------")
 
-    //  function getFirstElement(array:(string | number)[]){
-    //      return array[0];
-    //  }
+     function getFirstElement(array:(string | number)[]){
+         return array[0];
+     }
 
-    //  const numbers = [100,200,300,400,500];
-    //  const firstElement = getFirstElement(numbers);
+     const numbers = [100,200,300,400,500];
+     const firstElement = getFirstElement(numbers);
+     console.log("🚀 ~ Generics ~ firstElement:", firstElement)
 
-    //  const strings = ["Hello","World"];
-    //  const fistString = getFirstElement(strings);
+     const strings = ["Hello","World"];
+     const fistString = getFirstElement(strings);
+     console.log("🚀 ~ Generics ~ fistString:", fistString)
 
     //  function getFirstElement<T>(array: T[]):T {
     //     return array[0];
@@ -25,15 +27,15 @@ export const Generics = () => {
     //     const firstBoolean = getFirstElement(boleans);
 
     //example 2
-    function getIndexOfArray<indexOftheElement>(array:indexOftheElement[], item: indexOftheElement) {
-        return array.findIndex((element) => element === item);
-    }
+    // function getIndexOfArray<indexOftheElement>(array:indexOftheElement[], item: indexOftheElement) {
+    //     return array.findIndex((element) => element === item);
+    // }
 
-    const numbers = [100, 200, 300, 400, 500];
-    const index = getIndexOfArray<number>(numbers, 300);
+    // const numbers = [100, 200, 300, 400, 500];
+    // const index = getIndexOfArray<number>(numbers, 300);
 
-    const strings = ["Hello", "World"];
-    const indexString = getIndexOfArray<string>(strings, "World");
+    // const strings = ["Hello", "World"];
+    // const indexString = getIndexOfArray<string>(strings, "World");
 
     // exmple3
 
@@ -64,22 +66,22 @@ export const Generics = () => {
 
 
     //example usage
-    const userResponse:ApiResponse<{name:string,age:number}> = {
-        success:true,
-        data:{
-            name:"John",
-            age:25
-        }
-    }
+    // const userResponse:ApiResponse<{name:string,age:number}> = {
+    //     success:true,
+    //     data:{
+    //         name:"John",
+    //         age:25
+    //     }
+    // }
 
-    const errorResponse:ApiResponse<null> = {
-        success:false,
-        data:null,
-        error:"Not Found"
-    }
+    // const errorResponse:ApiResponse<null> = {
+    //     success:false,
+    //     data:null,
+    //     error:"Not Found"
+    // }
 
-    console.log(userResponse.data.name); // ✅ Type-safe access
-    console.log(errorResponse.error); // ✅ Error message handling
+    // console.log(userResponse.data.name); // ✅ Type-safe access
+    // console.log(errorResponse.error); // ✅ Error message handling
 
 
 }

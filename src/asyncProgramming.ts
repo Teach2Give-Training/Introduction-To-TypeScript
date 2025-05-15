@@ -1,11 +1,11 @@
 export const asyncProgramming = () => {
     console.log("------Async Programming-------")
 
-    //promises function
-    // const myPromise = new Promise<string>((resolve, reject) => {
+       // const myPromise = new Promise<string>((resolve, reject) => {
     //     // Asynchronous operation
     //   });
 
+    
     //   myPromise
     //     .then(value =>{
     //         console.log(value)
@@ -13,91 +13,68 @@ export const asyncProgramming = () => {
     //     .catch(reason=>{
     //         console.log(reason)
     //     })
-    //     .finally(()=>{
-    //         console.log("Promise was settled")
+
+    // const MyPromise = new Promise<string>((resolve,reject)=>{
+    //     setTimeout(()=>{
+    //         reject("Network error")
     //     })
-
-    //chaining Promises
-
-    // function fetchUser(id: number): Promise<string> {
-    //     return new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             if (id === 1) {
-    //                 resolve("Denis Wachira")
-    //             }else{
-    //                 reject("User not found")
-    //             }
-    //         },2000)
-    //     })
-    // }
-
-    // fetchUser(2).then(user=>{
-    //     console.log(`User's name is ${user}`)
-    //     return `User data: ${user}, age:30`;
     // })
-    // .then(userData=>{
-    //     console.log(userData)
+
+    // MyPromise.then(value=>{
+    //     console.log(value)
     // })
-    // .catch(error=>{        
-    //     console.log( error)
+    // .catch(reason =>{
+    //     console.error(reason)
     // })
 
 
-    // async and await function
+    //async and await
 
     // async function fetchData():Promise<string>{
-    //     return "data fetched"
+    //     return "Data Fetched"
     // }
 
     // console.log(fetchData())
 
-    //await key word
+
+    // async function fetchUser(id:number):Promise<string> {
+
+    //     return new Promise((resolve, reject)=>{
+    //         setTimeout(()=>{
+    //            if(id === 1){
+    //             resolve("Denis Wachira")
+    //            } else{
+    //             reject("User not found")
+    //            }
+    //         },3000)
+    //     })
+        
+    // }
+
+    // async function getUserData(id:number):Promise<void> {
+    //     try {
+    //        const user = await fetchUser(id);
+    //        console.log(user)
+    //     } catch (error) {
+    //         console.error(error)
+    //     }
+    // }
+
+    // getUserData(3)
 
 
-    async function fetchUser(id: number): Promise<string> {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    if (id === 1) {
-                        resolve("Denis Wachira")
-                    }else{
-                        reject("User not found")
-                    }
-                },2000)
-            })
-        }
-
-        async function getUserData(id:number):Promise<void>{
-            try {
-               const user = await  fetchUser(id);
-               console.log(`User's name is ${user}`)
-            } catch (error) {
-               console.error(error) 
-            }
-        }
-
-    //     getUserData(5)
-
-
-    async function fetchUserData(): Promise<string[]> {
-        // ... Fetch user data ...
-    }
-
-    async function fetchPostsData(): Promise<string[]> {
-        // ... Fetch posts data ...
-    }
-
-    async function fetchData(): Promise<void> {
+    const fetchAPI = async(id:number):Promise<void> =>{
         try {
-            const [users, posts] = await Promise.all([fetchUserData(), fetchPostsData()]);
+            const url = `https://jsonplaceholder.typicode.com/users/${id}`
+            const response = await fetch(url)
 
-            console.log(users);
-            console.log(posts);
+            const data = await response.json()
+            console.log(data)
         } catch (error) {
-            console.error(error);
+            console.error(error)
         }
     }
 
-    fetchData();
-
+    fetchAPI(1)
 
 }
